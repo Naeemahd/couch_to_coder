@@ -241,3 +241,42 @@ employees = [
     }
 ]
 
+'''
+Tasks:
+1. Print the name of the person who has the highest salary at the company.
+2. Print the combined years of experience of all employees at the company.
+3. Some people don't have an email address - collect their details into a new list!
+4. Which one costs more for the company - Product department salaries or Business
+department salaries?
+Extensions: 5. What is the average salary for people over 30 years of age? 6. Create a new
+dict and calculate how many people are working with certain job titles. (HARD) Example:
+{"Project Manage": 4, "Machine Learning Engineer": 3, ...}
+'''
+highest_salary = employees[0]
+total_experience = 0
+no_email = []
+for employee in employees:
+    # task 1
+    if(employee["salary"]) > highest_salary["salary"]:
+        highest_salary = employee
+    # task 2
+    total_experience += employee["years_of_experience"]
+    # task 3
+    if(employee["email"]) == None:
+        no_email.append(employee)
+
+print(highest_salary["first_name"],highest_salary["last_name"])      
+print(total_experience) 
+print(no_email)
+
+# task 4
+product_salaries = 0
+business_salaries = 0
+for employee in employees:
+    if(employee["department"]) == "Business":
+        business_salaries += employee["salary"]
+    else:
+        product_salaries += employee["salary"]
+        
+print("is product department salaries higher than business department?", product_salaries > business_salaries)        
+
