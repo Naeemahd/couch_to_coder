@@ -4,8 +4,9 @@ from collections import namedtuple
 Car = namedtuple( "Car", " model year price transmission mileage fuelType tax mpg engineSize")
 cars = []
 with open("vw.csv", "r", encoding = "utf-8", errors = 'ignore') as csvfile:
-    reader = csv. reader (csvfile, skipinitialspace=True)
-    next (reader)
+    reader = csv.reader(csvfile, skipinitialspace=True)
+
+    next(reader)
     for row in reader:
         new_car = Car(* row)
         cars. append (new_car)
@@ -54,5 +55,4 @@ for car in cars:
         car.engineSize
     )
     used_vw_cars. append (vw_cars)
-
 print(used_vw_cars)
